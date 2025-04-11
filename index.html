@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ishan Diwantha | Graphic Designer</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif']
+                    },
+                    colors: {
+                        'primary': '#667eea',
+                        'secondary': '#764ba2'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .bg-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hover-up {
+            transition: all 0.3s ease;
+        }
+        
+        .hover-up:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-card {
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar {
+            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .project-card {
+            overflow: hidden;
+        }
+        
+        .project-card .overlay {
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover .overlay {
+            opacity: 1;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-bar {
+            position: relative;
+            height: 8px;
+            background: #e9ecef;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .skill-fill {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            border-radius: 4px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            animation: fillBar 1.5s ease-in-out;
+        }
+
+        @keyframes fillBar {
+            from { width: 0; }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+    <nav class="navbar fixed top-0 left-0 w-full z-50 py-4">
+        <div class="container mx-auto px-6 flex items-center justify-between">
+            <div>
+                <a href="#" class="text-xl font-bold">Ishan<span class="text-gradient">.Design</span></a>
+            </div>
+            
+            <div class="hidden md:flex items-center space-x-10">
+                <a href="#home" class="text-gray-800 hover:text-purple-600 transition-colors">Home</a>
+                <a href="#about" class="text-gray-800 hover:text-purple-600 transition-colors">About</a>
+                <a href="#services" class="text-gray-800 hover:text-purple-600 transition-colors">Services</a>
+                <a href="#projects" class="text-gray-800 hover:text-purple-600 transition-colors">Projects</a>
+                <a href="#contact" class="text-gray-800 hover:text-purple-600 transition-colors">Contact</a>
+            </div>
+            
+            <div class="md:hidden">
+                <button id="menu-toggle" class="focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white w-full absolute top-full left-0 py-4 shadow-lg">
+            <div class="container mx-auto px-6 flex flex-col space-y-4">
+                <a href="#home" class="text-gray-800 hover:text-purple-600 transition-colors">Home</a>
+                <a href="#about" class="text-gray-800 hover:text-purple-600 transition-colors">About</a>
+                <a href="#services" class="text-gray-800 hover:text-purple-600 transition-colors">Services</a>
+                <a href="#projects" class="text-gray-800 hover:text-purple-600 transition-colors">Projects</a>
+                <a href="#contact" class="text-gray-800 hover:text-purple-600 transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero section -->
+    <section id="home" class="min-h-screen flex items-center pt-20">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 md:pr-10">
+                    <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-4">
+                        Hi, I'm <span class="text-gradient">Ishan Diwantha</span>
+                    </h1>
+                    <p class="text-xl text-gray-600 mb-8">
+                        Bringing brands to life through creative and innovative design solutions.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#contact" class="btn-primary px-8 py-3 rounded-full text-white font-medium">
+                            Let's Talk
+                        </a>
+                        <a href="#projects" class="px-8 py-3 rounded-full border border-gray-300 hover:border-purple-500 transition-colors">
+                            View Projects
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2 mt-10 md:mt-0">
+                    <div class="relative">
+                        <div class="w-64 h-64 md:w-80 md:h-80 bg-gradient rounded-full mx-auto relative overflow-hidden">
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <span class="text-6xl text-white font-bold">ID</span>
+                            </div>
+                        </div>
+                        <div class="absolute -bottom-4 -right-4 bg-white rounded-lg shadow-lg p-4">
+                            <p class="font-medium">5+ Years Experience</p>
+                            <p class="text-sm text-gray-600">Graphic Design</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">About <span class="text-gradient">Me</span></h2>
+                <div class="w-24 h-1 bg-gradient mx-auto"></div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <div class="relative">
+                        <div class="w-full h-80 bg-gray-100 rounded-lg relative overflow-hidden shadow-lg">
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <div class="text-center">
+                                    <div class="text-5xl font-bold text-gradient mb-2">Ishan</div>
+                                    <div class="text-xl text-gray-600">Graphic Designer</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="absolute -bottom-6 -right-6 w-20 h-20 bg-gradient rounded-lg"></div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2 md:pl-16">
+                    <h3 class="text-2xl font-bold mb-6">A Creative Force in Sri Lankan Graphic Design</h3>
+                    <p class="text-gray-600 mb-6">
+                        I'm Ishan Diwantha, also known as Ishan W., a distinguished graphic designer from Sri Lanka. 
+                        With a career spanning several years, I've made significant contributions to the field of 
+                        graphic design, both locally and internationally.
+                    </p>
+                    <p class="text-gray-600 mb-8">
+                        My journey in graphic design began with a strong foundation in visual communication and a 
+                        passion for creativity. Over the years, I've honed my skills to specialize in various aspects 
+                        of design, delivering projects that are both functional and visually appealing.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-6 mb-8">
+                        <div>
+                            <h4 class="font-semibold mb-2">Name:</h4>
+                            <p class="text-gray-600">Ishan Diwantha</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-2">Experience:</h4>
+                            <p class="text-gray-600">5+ Years</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-2">Location:</h4>
+                            <p class="text-gray-600">Sri Lanka</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-2">Freelance:</h4>
+                            <p class="text-gradient font-medium">Available</p>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="btn-primary px-8 py-3 rounded-full text-white font-medium inline-block">
+                        Get In Touch
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Skills -->
+            <div class="mt-20">
+                <h3 class="text-2xl font-bold text-center mb-10">My <span class="text-gradient">Skills</span></h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <div>
+                        <div class="mb-6">
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Logo Design</span>
+                                <span class="text-gradient font-medium">95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Illustrations</span>
+                                <span class="text-gradient font-medium">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Digital Art</span>
+                                <span class="text-gradient font-medium">88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 88%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="mb-6">
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Brand Identity</span>
+                                <span class="text-gradient font-medium">92%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 92%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">UI/UX Design</span>
+                                <span class="text-gradient font-medium">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Print Design</span>
+                                <span class="text-gradient font-medium">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services section -->
+    <section id="services" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">My <span class="text-gradient">Services</span></h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    I offer a wide range of creative design solutions to help businesses and individuals
+                    establish a strong visual presence in the digital world.
+                </p>
+                <div class="w-24 h-1 bg-gradient mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Service 1 -->
+                <div class="service-card bg-white rounded-lg p-8 shadow-lg hover-up">
+                    <div class="w-16 h-16 bg-purple-100 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Logo Design</h3>
+                    <p class="text-gray-600 mb-6">
+                        Crafting unique and memorable logos that encapsulate brand identities and make
+                        a lasting impression on your audience.
+                    </p>
+                    <a href="#contact" class="text-purple-600 font-medium hover:text-purple-700 flex items-center">
+                        Learn More
+                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </a>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card bg-white rounded-lg p-8 shadow-lg hover-up">
+                    <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Illustrations</h3>
+                    <p class="text-gray-600 mb-6">
+                        Creating detailed and expressive illustrations for diverse applications,
+                        bringing your ideas and concepts to life visually.
+                    </p>
+                    <a href="#contact" class="text-blue-600 font-medium hover:text-blue-700 flex items-center">
+                        Learn More
+                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </a>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card bg-white rounded-lg p-8 shadow-lg hover-up">
+                    <div class="w-16 h-16 bg-green-100 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Digital Art</h3>
+                    <p class="text-gray-600 mb-6">
+                        Producing compelling digital artwork that resonates with modern audiences
+                        and captures attention in the digital landscape.
+                    </p>
+                    <a href="#contact" class="text-green-600 font-medium hover:text-green-700 flex items-center">
+                        Learn More
+                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </a>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card bg-white rounded-lg p-8 shadow-lg hover-up">
+                    <div class="w-16 h-16 bg-red-100 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Brand Identity</h3>
+                    <p class="text-gray-600 mb-6">
+                        Developing comprehensive brand identities that help businesses establish
+                        a consistent and recognizable presence across all platforms.
+                    </p>
+                    <a href="#contact" class="text-red-600 font-medium hover:text-red-700 flex items-center">
+                        Learn More
+                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </a>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-card bg-white rounded-lg p-8 shadow-lg hover-up">
+                    <div class="w-16 h-16 bg-yellow-100 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">UI/UX Design</h3>
+                    <p class="text-gray-600 mb-6">
+                        Creating intuitive and aesthetically pleasing user interfaces that enhance
+                        user experience and drive engagement with your digital products.
+                    </p>
+                    <a href="#contact" class="text-yellow-600 font-medium hover:text-yellow-700 flex items-center">
+                        Learn More
+                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </a>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="service-card bg-white rounded-lg p-8 shadow-lg hover-up">
+                    <div class="w-16 h-16 bg-indigo-100 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Print Design</h3>
+                    <p class="text-gray-600 mb-6">
+                        Designing eye-catching print materials including brochures, business cards,
+                        posters, and more that effectively communicate your message.
+                    </p>
+                    <a href="#contact" class="text-indigo-600 font-medium hover:text-indigo-700 flex items-center">
+                        Learn More
+                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Projects section -->
+    <section id="projects" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Featured <span class="text-gradient">Projects</span></h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    A collection of my best work that showcases my skills and expertise in
+                    various aspects of graphic design.
+                </p>
+                <div class="w-24 h-1 bg-gradient mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card rounded-lg overflow-hidden shadow-lg">
+                    <div class="relative h-64 bg-gray-200">
+                        <div class="absolute inset-0 flex items-center justify-center bg-purple-100">
+                            <div class="text-center p-6">
+                                <div class="text-2xl font-bold text-purple-600 mb-2">Harmony</div>
+                                <div class="text-gray-600">Logo Design</div>
+                            </div>
+                        </div>
+                        <div class="overlay absolute inset-0 bg-gradient bg-opacity-90 flex items-center justify-center p-6">
+                            <div class="text-center">
+                                <h3 class="text-white text-xl font-bold mb-2">Harmony Brand</h3>
+                                <p class="text-white text-sm mb-4">
+                                    A minimalist logo design for a wellness brand that combines
+                                    simplicity with sophistication.
+                                </p>
+                                <a href="#" class="inline-block px-6 py-2 bg-white text-purple-600 rounded-full text-sm font-medium">
+                                    View Details
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card rounded-lg overflow-hidden shadow-lg">
+                    <div class="relative h-64 bg-gray-200">
+                        <div class="absolute inset-0 flex items-center justify-center bg-blue-100">
+                            <div class="text-center p-6">
+                                <div class="text-2xl font-bold text-blue-600 mb-2">Explore</div>
+                                <div class="text-gray-600">Digital Art</div>
+                            </div>
+                        </div>
+                        <div class="overlay absolute inset-0 bg-gradient bg-opacity-90 flex items-center justify-center p-6">
+                            <div class="text-center">
+                                <h3 class="text-white text-xl font-bold mb-2">Explore Campaign</h3>
+                                <p class="text-white text-sm mb-4">
+                                    A series of digital illustrations for a travel agency's
+                                    promotional campaign.
+                                </p>
+                                <a href="#" class="inline
